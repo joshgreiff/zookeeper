@@ -8,6 +8,7 @@ const app = express()
 app.use(express.urlencoded({ extended: true }))
 // parse incoming JSON data
 app.use(express.json())
+app.use(express.static('public/public'))
 
 function filterByQuery(query, animalsArray){
     let personalityTraitsArray = []
@@ -115,12 +116,24 @@ if(!validateAnimal(req.body)){
 
     res.json(animal)
 }
-
-
-
-
 })
 
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/public/index.html'))
+})
+
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/public/animals.html'))
+})
+
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/public/zookepers.html'))
+})
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '.,public/public/index.html'))
+})
 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`)

@@ -108,6 +108,13 @@
         "hungry"
       ],
       "id": "10"
+    },
+    {
+      "name": "Tim",
+      "species": "zebra",
+      "diet": "herbivore",
+      "personalityTraits": [],
+      "id": "11"
     }
   ]
 }
